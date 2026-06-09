@@ -1,8 +1,10 @@
 from doc_handling import *
 from google.cloud import translate_v3
 import os
+import json
 
 PROJECT_ID = os.environ.get("GOOGLE_CLOUD_PROJECT")
+CREDENTIALS = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
 
 def translate(
         text, 
