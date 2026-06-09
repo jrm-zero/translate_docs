@@ -1,4 +1,4 @@
-from PyPDF2 import PdfReader
+from PyPDF2 import PdfReader # type: ignore
 import re
 import os
 import pathlib
@@ -31,5 +31,5 @@ def write_doc(from_path, dest_path, base_path=None):
     dest_file.write(source)
     dest_file.close()
 
-    print(f"{from_path} sucessfully written to {dest_path}")
+    print(f"\n{from_path} sucessfully written to {dest_path}\n")
     return 

@@ -41,3 +41,39 @@ def translate(
     )
 
     return response
+
+def detect_language(
+        text: str,
+        #project_id: str = {PROJECT_ID},
+) -> dict:
+    from google.cloud import translate_v2 as translate
+
+    translate_client = translate.Client()
+
+    response = translate_client.detect_language(text)
+
+    return response
+
+def detect_language_advanced(
+        text: str,
+) -> translate_v3.TranslationServiceClient:
+    '''
+    Detecting the language of a text string.
+
+    Args: project_id: The GCP project ID.
+
+    Returns: The detected language of the text.
+    '''
+    client = translate_v3.TranslationServiceClient()
+    location = "global"
+    parent = f"projects/{PROJECT_ID}/locations/{location}"
+
+     #Detail on supported types can be found here:
+     #https://cloud.google.com/translate/docs/supported-formats
+    response = client.detect_language(
+       content=text,
+        parent=parent,
+        mime_type="text/plain", # mime types: text/plain, text/html
+    )
+
+    return response
