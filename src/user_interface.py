@@ -3,16 +3,19 @@ from tkinter import ttk
 
 def build_window(self):
     window = Tk()
-    greeting = Label(
-        text="Hello, World!",
+    frame_file_path = Frame()
+    #frame_src_lang = Frame()
+    lbl_file_path = Label(
+        master=frame_file_path,
+        text="Enter Location",
         foreground="white",
-        background="black"
+        background="black",
     )
-    testing = StringVar()
-    entry = Entry(textvariable=testing)
-    entry.pack()
-    greeting.pack()
-    response = entry.get()
-    print(response)
+    ent_file_path = Entry(master=frame_file_path)
+    frame_file_path.pack()
+    lbl_file_path.pack()
+    ent_file_path.pack()
     window.mainloop()
-    return response
+    return
+
+

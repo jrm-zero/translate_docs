@@ -1,8 +1,10 @@
 from doc_handling import *
 from google.cloud import translate_v3
+from dotenv import load_dotenv
 import os
 import json
 
+load_dotenv()
 PROJECT_ID = os.environ.get("GOOGLE_CLOUD_PROJECT")
 CREDENTIALS = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
 
