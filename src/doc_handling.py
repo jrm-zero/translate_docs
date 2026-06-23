@@ -1,8 +1,6 @@
 from PyPDF2 import PdfReader # type: ignore
-import re
+from user_interface import *
 import os
-import pathlib
-import shutil
 
 def read_doc(from_path, base_path=None):
     print(f"\nPulling text from {from_path} to be translated.\n")
