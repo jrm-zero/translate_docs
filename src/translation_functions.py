@@ -79,3 +79,15 @@ def detect_language_advanced(
     )
 
     return response
+
+def get_supported_languages() -> translate_v3.types.SupportedLanguages:
+     client = translate_v3.TranslationServiceClient()
+     parent = f"projects/{PROJECT_ID}"
+
+     response = client.get_supported_languages(parent=parent, display_language_code="en")
+
+     langs = []
+     for lang in response.languages:
+         langs.append(lang.display_name)
+     
+     return langs
